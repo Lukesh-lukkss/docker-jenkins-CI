@@ -1,16 +1,16 @@
 pipeline {
-agent any {
-stages {
-stage('SCM')
-{
-git 'https://github.com/Lukesh-lukkss/docker-jenkins-CI.git'
-}
-stage('palcagte')
-{
-steps {
-sh 'mvn --version'
-}
-}
-}
-}
+    agent any {
+        stages {
+            stage('SCM'){
+                steps {
+                    git 'https://github.com/Lukesh-lukkss/docker-jenkins-CI.git'
+                }
+                stage('Package'){
+                    steps{
+                        sh 'mvn package'
+                    }
+                }
+            }
+        }
+    }
 }
