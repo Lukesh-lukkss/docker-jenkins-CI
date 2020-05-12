@@ -1,18 +1,15 @@
-pipeline
-{
-agent any
-
-stages
-{
-stage('Git Checkout')
-{
-steps
+pipeline {
+agent any {
+stages {
+stage('SCM')
 {
 git 'https://github.com/Lukesh-lukkss/docker-jenkins-CI.git'
 }
-steps 
+stage('palcagte')
 {
-sh 'mvn compile'
+steps {
+sh 'mvn --version'
+}
 }
 }
 }
